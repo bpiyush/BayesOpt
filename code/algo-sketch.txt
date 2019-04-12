@@ -1,0 +1,17 @@
+1. Prepare and normalize input data D (hyperparameters, metric_values) (Done)
+2. Train the surrogateNN using data D (Done)
+	a. Plot train/cval losses
+	b. Compute the design matrix for the input data and return
+3. Predict the predictive mean and predictive variance using random values of BLR hyperparameters (Done)
+4. Finding the hyperparameters of BayesianLinearRegression: [alpha, beta, c, Gamma, lambda_] (TODO)
+	[Other network hyperparameters like numer of layers, number of neurons etc. are fixed as defined in the paper]
+	a. Finding the marginal log likelihood
+	b. Optimize using scipy.minimize for each of the hyperparameters
+5. Predict the predictive mean and predictive variance using *optimal* values of BLR hyperparameters (TODO)
+6. Run the aquisition function routine to find more data points to learn the true function.
+	a. 
+
+
+
+NOTES:
+1. If MLE-II > Integrating out, then why don't we use MLE-II for estimating hyperparameters of BLR here?
