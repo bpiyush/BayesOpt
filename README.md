@@ -1,8 +1,8 @@
-#### Scalable Bayesian Optimization
+## Scalable Bayesian Optimization
 
 Bayesian Optimization is one of the most popular methods for optimizing expensive black-box functions. In this project, we attempt to understand some of the recent techniques for scaling Bayesian Optimization for large number of input data points. We also try some novel ideas and evaluations. Stay tuned for results and cleaned-up code!
 
-## Directory Structure
+#### Directory Structure
 
 Here is the directory structure. You can access the code in the `/code` folder. 
 
