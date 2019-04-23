@@ -4,7 +4,7 @@ Bayesian Optimization is one of the most popular methods for optimizing expensiv
 
 #### Directory Structure
 
-Here is the directory structure. You can access the code in the `/code` folder. 
+Here is the directory structure. You can access the code in the `/code` folder. Please note that only the code files are added to Git due to space optimization. Other files could be made available on request.
 
 ```
 BayesOpt/
@@ -35,3 +35,23 @@ BayesOpt/
     └── hyp_LogReg
 
 ```
+
+### Note
+
+We have used the implementation of `pybnn` [`pybnn`](https://github.com/automl/pybnn) as a base model for Bayesian Linear Regression on the basis of J. Snoek et al [1]. The usual Bayesian Optimization routine with the neural-network based surrogate model has been implemented by us.
+
+### Task 0: Testing the implementation on a Mathematical dataset
+
+We test our implementation through a simple mathematical dataset which looks like this:
+![alt text](https://github.com/bpiyush/BayesOpt/raw/master/plots/toy-dataset.png "Mathematical Dataset")
+
+### Task 1: Bayesian Linear Regression on toy dataset
+
+### Task 2:Logistic Regression on MNIST dataset
+
+
+
+
+
+### References
+1. J. Snoek et al, Scalable Bayesian Optimization using Deep Neural Networks
