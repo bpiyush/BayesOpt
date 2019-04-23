@@ -41,7 +41,7 @@ def visualize_predictions(X_train, y_train, X_test, mu, var):
     plt.plot(X_test[:, 0], mu, "blue", label="Predicted mean function")
     plt.fill_between(X_test[:, 0], mu + np.sqrt(var), mu - np.sqrt(var), color="orange", alpha=0.8)
     plt.fill_between(X_test[:, 0], mu + 2 * np.sqrt(var), mu - 2 * np.sqrt(var), color="orange", alpha=0.6)
-    plt.fill_between(X_test[:, 0], mu + 3 * np.sqrt(var), mu - 3 * np.sqrt(var), color="orange", alpha=0.4)
+#     plt.fill_between(X_test[:, 0], mu + 3 * np.sqrt(var), mu - 3 * np.sqrt(var), color="orange", alpha=0.4)
     plt.xlim(0, 1)
     plt.xlabel(r"Input $x$")
     plt.ylabel(r"Output $f(x)$")
@@ -60,9 +60,9 @@ def loss_plot(num_epochs, loss_arr):
     plt.legend()
     plt.show()
 
-def visualize_EI(X_train, y_train, X_test, mu, var, EI):
-    plt.figure(figsize=(15, 14))
-    setup((15, 13))
+def visualize_EI(X_train, y_train, X_test, mu, var, EI, save=False, path=None):
+    plt.figure(figsize=(12, 10))
+    setup((12, 10))
 
     fg, axes = plt.subplots(2, 1)
     ax1, ax2 = axes
@@ -86,12 +86,16 @@ def visualize_EI(X_train, y_train, X_test, mu, var, EI):
     ax2.grid()
 
     ax2.plot(X_test[:,0], EI, label="Expected Improvement")
-    ax2.fill_between(X_test[:,0], [0.0 for i in range(X_test.shape[0])], [y[0] for y in EI], color="skyblue", alpha=0.5)
+    ax2.fill_between(X_test[:,0], [0.0 for i in range(len(X_test[:, 0]))], EI, color="skyblue", alpha=0.5)
     ax2.set_xlim(0, 1)
     ax2.set_xlabel(r"Input $x$")
     ax2.set_ylabel(r"$EI(x)$")
     ax2.legend()
 
-    plt.show()
+    if save:
+        ax1.set_title("Iteration: "+path.split("/")[-1].split(".")[0])
+        plt.savefig(path)
+    plt.close()
+    # plt.show()
 
 
