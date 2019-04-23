@@ -73,9 +73,9 @@ class DNGO_v1():
 		assert len(X.shape) == 2, "Error: Incorrect input shape."
 		assert len(y.shape) == 1, "Error: Training labels must be one-dimensional array."
 
-	def sample_minibatch(X, y, batch_size):
+	def sample_minibatch(self, X, y, batch_size):
 		indices = np.arange(X.shape[0])
-		rand_num_gen.shuffle(indices)
+		self.rand_num_gen.shuffle(indices)
 
 		batch_idx = indices[:batch_size]
 		return X[batch_idx, :], y[batch_idx]
@@ -159,7 +159,6 @@ class DNGO_v1():
 		# Plotting training loss
 		loss_plot(len(loss_arr), loss_arr)
 
-
 		
 		# Design matrix
 		self.Theta = self.network.basis_functions(torch.Tensor(self.X)).data.numpy()
@@ -182,10 +181,16 @@ class DNGO_v1():
 		self.eta_x_test = self.prior(x_test, Gamma, c, lambda_)
 		self.K = beta*np.dot(Theta.T , Theta) + alpha*np.eye(Theta.shape[1])
 		self.m = beta*np.dot(np.dot(np.linalg.inv(self.K), Theta.T), y_train - self.eta_x_train)
+		# self.m = beta*np.dot(np.dot(np.linalg.inv(self.K), Theta.T), y_train )
+		# self.m = beta*np.dot(np.dot(np.linalg.inv(self.K), Theta.T), y_train -self.eta_x_test)
+
+
 
 		self.phi_x_test = nn_model.basis_functions(torch.Tensor(x_test)).data.numpy()
 
 		self.mu = np.dot(self.m.T, self.phi_x_test) + self.eta_x_test
+		# self.mu = np.dot(self.m.T, self.phi_x_test) 
+
 		self.var = np.dot(self.phi_x_test.T, np.dot(np.linalg.inv(self.K), self.phi_x_test)) + np.divide(1.0, beta)
 
 		return self.mu, self.var
@@ -200,7 +205,7 @@ class DNGO_v1():
 		self.m = beta*np.dot(np.dot(np.linalg.inv(self.K), Theta.T), y_train - self.eta_x_train)
 
 		self.val = ((self.D)/2.0)*np.log(alpha) + ((self.N)/2.0)*np.log(beta) 
-		self.val -= (beta/2.0)*np.linalg.norm(self.y_train_tilda - np.dot(Theta, self.m), ord=2)
+		self.val -= (beta/2.0)*np.linalg.norm(self.y_train_tilda - np.dot(Theta, self.m), ord=2)**2
 		self.val -= (alpha/2.0)*np.linalg.norm(self.m, ord=2)
 		self.val -= 0.5*np.log(np.linalg.det(self.K))
 
