@@ -56,6 +56,7 @@ Stay tuned!
 ### Task 2: Logistic Regression on MNIST dataset
 
 Stay tuned!
+
 ---
 
 
