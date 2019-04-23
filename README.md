@@ -44,13 +44,18 @@ We have used the implementation of [`pybnn`](https://github.com/automl/pybnn) as
 ### Task 0: Testing the implementation on a Mathematical dataset
 
 We test our implementation through a simple mathematical dataset which looks like this:
+
 ![alt text](https://github.com/bpiyush/BayesOpt/raw/master/plots/toy-dataset.png "Mathematical Dataset")
 
 ### Task 1: Bayesian Linear Regression on toy dataset
 
+Stay tuned!
+
 ---
 
-### Task 2:Logistic Regression on MNIST dataset
+### Task 2: Logistic Regression on MNIST dataset
+
+Stay tuned!
 ---
 
 
