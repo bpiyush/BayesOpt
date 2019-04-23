@@ -38,8 +38,9 @@ BayesOpt/
 
 ### Note
 
-We have used the implementation of `pybnn` [`pybnn`](https://github.com/automl/pybnn) as a base model for Bayesian Linear Regression on the basis of J. Snoek et al [1]. The usual Bayesian Optimization routine with the neural-network based surrogate model has been implemented by us.
+We have used the implementation of [`pybnn`](https://github.com/automl/pybnn) as a base model for Bayesian Linear Regression on the basis of J. Snoek et al [1]. The usual Bayesian Optimization routine with the neural-network based surrogate model has been implemented by us.
 
+---
 ### Task 0: Testing the implementation on a Mathematical dataset
 
 We test our implementation through a simple mathematical dataset which looks like this:
@@ -47,8 +48,10 @@ We test our implementation through a simple mathematical dataset which looks lik
 
 ### Task 1: Bayesian Linear Regression on toy dataset
 
-### Task 2:Logistic Regression on MNIST dataset
+---
 
+### Task 2:Logistic Regression on MNIST dataset
+---
 
 
 
