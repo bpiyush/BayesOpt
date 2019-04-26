@@ -19,14 +19,14 @@ def prepare_D_surrogate(num_points):
 		hyperparams = {}
 		hyperparams['x'] = {'value': x, 'description': 'None', 'type': 'continuous', 'range':[-4, 4]}
 		hyperparams['metainfo'] = ['x']
-		task = Task_Toy(hyperparams)
+		task = Task(hyperparams)
 		y.append(task.metric())
 	return x_arr, y
 
-class Task_Toy(object):
-	"""docstring for Task_Toy"""
+class Task(object):
+	"""docstring for Task"""
 	def __init__(self, hyperparams):
-		super(Task_Toy, self).__init__()
+		super(Task, self).__init__()
 		self.hyperparams = hyperparams
 		
 		self.metainfo = self.hyperparams['metainfo']
